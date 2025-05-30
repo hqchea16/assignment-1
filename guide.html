@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step-by-Step Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Favicon.jpg">
+    <style>
+        /* Keyframe for main content fade-in and slide-up effect */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* General Body Styling - Consistent across pages */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #95c9e1; /* Light blue background for a calm base */
+            color: #333; /* Dark grey text for readability */
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll on animations */
+        }
+
+        /* Header and Navigation Styling - Consistent across pages */
+        header {
+            background-color: #f4e0e1; /* Pink accent for header, making it prominent */
+            color: #333; /* Dark text for strong contrast against light background */
+            padding: 1.5rem 0; /* Increased padding for a more substantial header */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px; /* Increased space between navigation items */
+        }
+
+        nav a {
+            color: #333; /* Dark text for navigation links */
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem; /* Increased padding for larger touch targets */
+            border-radius: 10px; /* Slightly more rounded corners */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
+            cursor: pointer; /* Hand icon on navigation links */
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #95c9e1; /* Blue background on hover/active */
+            color: white; /* White text on hover/active for strong contrast */
+            transform: translateY(-3px); /* More pronounced lift effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+        }
+
+        /* Main Content Area - Consistent across pages */
+        main {
+            flex: 1;
+            padding: 3rem; /* Increased padding for more spacious content */
+            max-width: 1000px; /* Slightly wider content area */
+            margin: 3rem auto; /* Increased vertical margin */
+            background-color: #fff; /* White background for content box */
+            border-radius: 15px; /* More rounded corners for the main content block */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow for prominence */
+            text-align: center; /* Center main title */
+            animation: fadeInSlideUp 0.8s ease-out forwards; /* Apply animation on load */
+        }
+
+        /* Headings Styling - Consistent across pages */
+        h1 {
+            color: #95c9e1; /* Light blue for main headings, provides good contrast on white */
+            font-size: 3.2em; /* Larger main heading */
+            margin-bottom: 0.6em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08); /* Slightly stronger text shadow */
+        }
+
+        h2 {
+            color: #666; /* Slightly darker grey for subheadings */
+            font-size: 2.2em; /* Larger subheading */
+            margin-top: 2em; /* More space above subheading */
+            margin-bottom: 1em;
+        }
+
+        /* Ordered List Styling */
+        ol { 
+            list-style-type: decimal; /* Use numbers for ordered list */
+            padding-left: 40px; /* Add padding for numbers */
+            text-align: left; /* Align list items to the left */
+            margin: 2.5rem auto; /* Increased margin */
+            max-width: 85%; /* Slightly wider list */
+        }
+
+        ol li { 
+            background-color: #f9f9f9; /* Default background for all list items */
+            margin-bottom: 20px; /* More space between list items */
+            padding: 20px; /* Increased padding */
+            border-radius: 10px; /* More rounded corners */
+            border-left: 8px solid #f4e0e1; /* Pink left border for emphasis */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Enhanced shadow */
+            font-size: 1.1em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        ol li:nth-child(even){
+            border-left: 8px solid #95c9e1; /* Blue ledt border for emphasis */
+        }
+
+        /* All list items will now have the same hover effect as the original 1st item */
+        ol li:hover { /* Changed from ul li:hover to ol li:hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+            background-color: #ffeaea; /* Pink on hover */
+            color: #333; /* Ensure text remains dark on hover */
+        }
+
+        /* Specific hover for even items to ensure consistent visual feedback */
+        ol li:nth-child(even):hover { /* Changed from ul li:nth-child(even):hover to ol li:nth-child(even):hover */
+            background-color: #d5e3fa; /* Light blue on hover for even items */
+            color: #333; /* Ensure text remains dark on hover */
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #f4e0e1; /* Pink accent for footer, consistent with header */
+            color: #333; /* Dark text for contrast */
+            padding: 1.5rem 0; /* Increased padding for a more substantial footer */
+            margin-top: auto;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+            text-align: center; /* Center text within footer */
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column; /* Stack vertically by default */
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between elements */
+            max-width: 1000px; /* Align with main content width */
+            margin: 0 auto; /* Center the container */
+            padding: 0 1rem; /* Add some horizontal padding */
+        }
+
+        .footer-contact-info a {
+            color: #333; /* Dark text for contact links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-info a:hover {
+            color: #95c9e1; /* Light blue on hover */
+        }
+
+        /* Responsive Adjustments specific to this page */
+        @media (max-width: 768px) {
+            ol { /* Changed from ul to ol */
+                max-width: 95%; /* Adjust list width for smaller screens */
+                padding-left: 20px; /* Adjust padding for numbers on small screens */
+            }
+            ol li { /* Changed from ul li to ol li */
+                font-size: 1em;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            nav {
+                gap: 15px; /* Reduced gap for smaller screens */
+            }
+            nav a {
+                padding: 0.6rem 1rem; /* Adjusted padding */
+            }
+        }
+
+        @media (min-width: 600px) { /* Adjust breakpoint as needed */
+            .footer-container {
+                flex-direction: row; /* Row direction on wider screens */
+                justify-content: center; /* Center items when copyright is removed */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="guide.html" class="active">Step-by-Step Guide</a>
+            <a href="inspiration.html">Inspiration & Resources</a>
+            <a href="portfolio.html">Portfolio</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Step-by-Step Guide to Becoming a Graphic Designer</h1>
+        <p>
+            Embarking on a career in graphic design requires dedication and a structured approach. Here's a comprehensive guide to help you navigate your path to success:
+        </p>
+        <ol> <li>
+                 <h3>Learn the Basics Through a Degree or Course</h3>
+                <p>First, I need to build a strong foundation. I can do this by studying graphic design through a degree, a diploma, or even online courses. What matters most is that I understand design principles, learn the tools, and start building my portfolio.</p>
+            </li>
+            <li>
+                <h3>Master Industry-Standard Design Software</h3>
+                <p>To bring my ideas to life, I’ll need to master programs like Adobe Photoshop, Illustrator, and InDesign. If I’m more into digital work, learning Figma or Sketch will also help. The more I practice, the more confident I’ll become.</p>
+            </li>
+            <li>
+                <h3>Understand Design Principles</h3>
+                <p>Good design isn’t just about making things look nice. I’ll study the basics like color, typography, layout, and balance. These principles help make my work not only attractive but also effective in communication.</p>
+            </li>
+            <li>
+                <h3>Build a Portfolio I’m Proud Of</h3>
+                <p>My portfolio is like my personal gallery. I’ll create different types of projects—branding, web design, print materials, and more—to show what I can do. I’ll keep updating it as I grow and learn new skills.</p>
+            </li>
+            <li>
+                <h3>Gain Practical Experience Through Internships or Freelance Work</h3>
+                <p>Doing internships or freelance gigs will teach me how to work with clients and meet deadlines. Even small projects count—they help me improve, get feedback, and grow my network.</p>
+            </li>
+            <li>
+                <h3>Understand User Experience (UX) and User Interface (UI) Design</h3>
+                <p>I’m aiming to design for websites or apps, I need to know how users interact with them. I’ll learn about things like wireframes, user journeys, and prototyping to make designs that are not just pretty but also easy to use.</p>
+            </li>
+            <li>
+                <h3>Continuously Learn and Stay Updated on Design Trends</h3>
+                <p>The design industry is constantly evolving. Stay informed about new design trends, tools, and technologies. Follow design blogs, attend webinars, and participate in design communities to keep your skills sharp and relevant.</p>
+            </li>
+            <li>
+                <h3>Keep Learning and Stay Inspired</h3>
+                <p>Design is always changing, so I’ll keep up with new trends and tools. I’ll follow design blogs, watch tutorials, and join creative communities. Staying curious and open to learning is key to growing as a designer.</p>
+            </li>
+        </ol> </main>
+
+    <footer>
+        <div class="footer-container">
+            <p class="footer-contact-info">
+                ©2025 <a href="https://wa.me/60102572094">Chea Han Qian</a>| Email: <a href="s231420029@studentmail.unimap.edu.my">s231420029@studentmail.unimap.edu.my</a> | Phone: <a href="tel:010-2572094">010-2572094</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

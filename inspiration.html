@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiration & Resources</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Favicon.jpg">
+    <style>
+        /* Keyframe for main content fade-in and slide-up effect */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* General Body Styling - Consistent across pages */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #95c9e1; /* Light blue background for a calm base */
+            color: #333; /* Dark grey text for readability */
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll on animations */
+            perspective: 1000px; /* For 3D transformations */
+
+            /* CSS Cursor Effect: Round Pink Circle */
+            cursor: url('pink-cursor.png'), auto
+        }
+
+        /* Header and Navigation Styling - Consistent across pages */
+        header {
+            background-color: #f4e0e1; /* Light peach/pink accent for header, making it prominent */
+            color: #333; /* Dark text for strong contrast against light background */
+            padding: 1.5rem 0; /* Increased padding for a more substantial header */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px; /* Increased space between navigation items */
+        }
+
+        nav a {
+            color: #333; /* Dark text for navigation links */
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem; /* Increased padding for larger touch targets */
+            border-radius: 10px; /* Slightly more rounded corners */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
+            cursor: pointer; /* Hand icon on navigation links */
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #95c9e1; /* Blue background on hover/active */
+            color: white; /* White text on hover/active for strong contrast */
+            transform: translateY(-3px); /* More pronounced lift effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+        }
+
+        /* Main Content Area - Consistent across pages */
+        main {
+            flex: 1;
+            padding: 3rem; /* Increased padding for more spacious content */
+            max-width: 1000px; /* Slightly wider content area */
+            margin: 3rem auto; /* Increased vertical margin */
+            background-color: #fff; /* White background for content box */
+            border-radius: 15px; /* More rounded corners for the main content block */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow for prominence */
+            text-align: center; /* Center main title */
+            animation: fadeInSlideUp 0.8s ease-out forwards; /* Apply animation on load */
+        }
+
+        /* Headings Styling - Consistent across pages */
+        h1 {
+            color: #95c9e1; /* Light blue for main headings, provides good contrast on white */
+            font-size: 3.2em; /* Larger main heading */
+            margin-bottom: 0.6em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08); /* Slightly stronger text shadow */
+            /* Removed transition as hover effect is removed */
+        }
+
+        h2 {
+            color: #666; /* Slightly darker grey for subheadings */
+            font-size: 2.2em; /* Larger subheading */
+            margin-top: 2em; /* More space above subheading */
+            margin-bottom: 1em;
+        }
+
+        /* Table Styling (specific to inspiration page) */
+        table {
+            width: 95%; /* Occupy most of the main content width */
+            margin: 2.5rem auto; /* Center the table with more margin */
+            border-collapse: collapse; /* Collapse borders for a cleaner look */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+            border-radius: 15px; /* More rounded corners for the table */
+            overflow: hidden; /* Ensures rounded corners apply to content */
+        }
+
+        th, td {
+            padding: 18px; /* Increased padding for table cells */
+            text-align: left;
+            border-bottom: 1px solid #eee; /* Lighter grey border for rows */
+        }
+
+        th {
+            background-color: #f4e0e1; /* Light peach/pink for table headers, making it an accent */
+            color: #333; /* Dark text for contrast */
+            font-weight: 700; /* Bolder font for headers */
+            text-transform: uppercase;
+            font-size: 1.1em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa; /* Very light grey for even rows */
+        }
+
+        /* Apply hover effect only to tbody rows */
+        tbody tr:hover {
+            background-color: #ffeaea; /* Lighter peach/pink on row hover, subtle accent */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        td a {
+            color: #007bff; /* Standard link blue */
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+            cursor: pointer; /* Hand icon on table links */
+        }
+
+        td a:hover {
+            color: #0056b3; /* Darker blue on link hover */
+            text-decoration: underline;
+        }
+
+        /* Interactive Resources Section Styling */
+        .interactive-resources {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column; /* Stack cards vertically */
+            justify-content: center;
+            gap: 40px; /* Increased space between stacked cards */
+            align-items: center; /* Center cards horizontally */
+        }
+
+        .resource-card {
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            overflow: hidden; /* Crucial for image scrolling effect */
+            width: 100%; /* Take full width of its container */
+            max-width: 800px; /* Limit max width for readability */
+            text-decoration: none; /* Remove underline from link */
+            color: #333; /* Ensure text color is dark */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, border 0.3s ease, border-radius 0.3s ease; /* Added border-radius transition */
+            display: flex; /* Enable flexbox for internal layout */
+            flex-direction: row; /* Arrange image and text in a row */
+            align-items: center; /* Vertically align items in the card */
+            padding: 0; /* Remove padding from card itself, add to text content */
+            border: 2px solid transparent; /* Initial transparent border */
+            cursor: pointer; /* Hand icon on resource cards */
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px) scale(1.01); /* Slight lift and scale */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+            background-color: #76b3d1; /* Darker blue on hover */
+            color: white; /* White text on hover for contrast */
+            border: 2px solid #6498b2; /* Add a light peach/pink border on hover */
+            border-radius: 20px; /* Increase border-radius on hover */
+        }
+
+        .resource-card .image-container {
+            flex: 1; /* Take half width */
+            overflow: hidden; /* Ensure image transitions are contained */
+            border-radius: 0 12px 12px 0; /* Default: Rounded right corners for image container */
+        }
+
+        .resource-card img {
+            width: 100%;
+            height: 200px; /* Adjusted height for larger images */
+            object-fit: cover; /* Cover the area without distortion */
+            filter: grayscale(100%); /* Initial grayscale filter */
+            transition: filter 0.5s ease, transform 0.5s ease; /* Transition for filter and transform */
+            display: block; /* Remove extra space below image */
+        }
+
+        .resource-card:hover img {
+            filter: grayscale(0%) brightness(1.1); /* Color and slight brightness increase on hover */
+            transform: scale(1.1); /* Zoom in effect on image */
+        }
+
+        .resource-card .text-content {
+            flex: 1; /* Take other half width */
+            padding: 20px 30px; /* Padding for text content */
+            text-align: left; /* Align text left */
+        }
+
+        .resource-card h3 {
+            color: #95c9e1; /* Light blue for resource titles */
+            font-size: 1.8em; /* Larger heading */
+            margin: 0 0 10px; /* Adjust margin */
+            padding: 0;
+            transition: color 0.3s ease, text-shadow 0.3s ease; /* Added text-shadow transition */
+        }
+
+        .resource-card:hover h3 {
+            color: white; /* White title on hover */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow on hover */
+        }
+
+        .resource-card p {
+            font-size: 1.05em; /* Slightly larger paragraph */
+            text-align: left; /* Align text left */
+            padding: 0;
+            margin-bottom: 0; /* Remove bottom margin from last paragraph */
+            transition: color 0.3s ease, text-shadow 0.3s ease; /* Added text-shadow transition */
+        }
+
+        .resource-card:hover p {
+            color: white; /* White paragraph text on hover */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow on hover */
+        }
+
+        /* Order for image on right, description on left (odd cards) */
+        .resource-card:nth-child(odd) .image-container {
+            order: 2; /* Image on right */
+            border-radius: 0 12px 12px 0;
+        }
+        .resource-card:nth-child(odd) .text-content {
+            order: 1; /* Text on left */
+            border-radius: 12px 0 0 12px;
+        }
+
+        /* Order for image on left, description on right (even cards) */
+        .resource-card:nth-child(even) .image-container {
+            order: 1; /* Image on left */
+            border-radius: 12px 0 0 12px;
+        }
+        .resource-card:nth-child(even) .text-content {
+            order: 2; /* Text on right */
+            border-radius: 0 12px 12px 0;
+        }
+
+
+        /* Footer Styling */
+        footer {
+            background-color: #f4e0e1; /* Light peach/pink accent for footer, consistent with header */
+            color: #333; /* Dark text for contrast */
+            padding: 1.5rem 0; /* Increased padding for a more substantial footer */
+            margin-top: auto;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+            text-align: center; /* Center text within footer */
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column; /* Stack vertically by default */
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between elements */
+            max-width: 1000px; /* Align with main content width */
+            margin: 0 auto; /* Center the container */
+            padding: 0 1rem; /* Add some horizontal padding */
+        }
+
+        .footer-contact-info a {
+            color: #333; /* Dark text for contact links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-info a:hover {
+            color: #95c9e1; /* Light blue on hover */
+        }
+
+        /* Responsive Adjustments specific to this page */
+        @media (max-width: 768px) {
+            table {
+                width: 100%; /* Full width table on small screens */
+                display: block; /* Allow table to scroll horizontally if needed */
+                overflow-x: auto; /* Enable horizontal scrolling for table */
+                border-radius: 10px;
+            }
+            th, td {
+                padding: 12px;
+                font-size: 0.9em;
+            }
+            .resource-card {
+                flex-direction: column; /* Stack image and text vertically on small screens */
+                width: 95%;
+                max-width: none; /* Remove max-width on small screens */
+                padding-bottom: 15px; /* Restore padding for vertical stack */
+            }
+            .resource-card .image-container,
+            .resource-card .text-content {
+                flex: none; /* Remove flex sizing */
+                width: 100%; /* Take full width */
+                order: unset !important; /* Reset order for vertical stack */
+                border-radius: 0; /* Remove specific border radius for vertical stack */
+            }
+            .resource-card img {
+                border-radius: 12px 12px 0 0; /* Rounded top corners for vertical stack */
+                border-bottom: 3px solid #f4e0e1; /* Re-add bottom border for image */
+            }
+            .resource-card .text-content {
+                padding: 15px; /* Adjust text padding for vertical stack */
+                text-align: center; /* Center text for vertical stack */
+            }
+            .resource-card:nth-child(odd) .image-container,
+            .resource-card:nth-child(even) .image-container {
+                border-radius: 12px 12px 0 0; /* Ensure top corners are rounded for image on small screens */
+            }
+            .resource-card:nth-child(odd) .text-content,
+            .resource-card:nth-child(even) .text-content {
+                border-radius: 0 0 12px 12px; /* Ensure bottom corners are rounded for text on small screens */
+            }
+            nav {
+                gap: 15px; /* Reduced gap for smaller screens */
+            }
+            nav a {
+                padding: 0.6rem 1rem; /* Adjusted padding */
+            }
+        }
+
+        @media (min-width: 600px) { /* Adjust breakpoint as needed */
+            .footer-container {
+                flex-direction: row; /* Row direction on wider screens */
+                justify-content: center; /* Center items when copyright is removed */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="guide.html">Step-by-Step Guide</a>
+            <a href="inspiration.html" class="active">Inspiration & Resources</a>
+            <a href="portfolio.html">Portfolio</a>
+        </nav>
+    </header>
+
+    <main id="mainContent">
+        <h1>Inspiration & Resources for Graphic Designers</h1>
+        <p>
+            The world of graphic design has been profoundly influenced by visionary artists and innovators. Here are some influential figures and valuable resources to help you on your creative journey:
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contribution / Known For</th>
+                    <th>Learn More</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Paul Rand</td>
+                    <td>A pioneer of modern graphic design, Paul Rand is best known for creating iconic corporate logos such as IBM, ABC, and UPS. He championed simplicity and functionality in visual communication.</td>
+                    <td><a href="https://www.paulrand.design/" target="_blank">Paul Rand: A Designer's Art</a></td>
+                </tr>
+                <tr>
+                    <td>Stefan Sagmeister</td>
+                    <td>An Austrian designer known for his provocative and emotional design work, often blending typography with unconventional materials. He's also recognized for his work on album covers and for founding the studio Sagmeister & Walsh.</td>
+                    <td><a href="https://sagmeister.com/" target="_blank">Stefan Sagmeister Official Site</a></td>
+                </tr>
+                <tr>
+                    <td>Milton Glaser</td>
+                    <td>An American graphic designer celebrated for the iconic "I ♥ NY" logo and the psychedelic Bob Dylan poster. Glaser's work combines conceptual clarity with strong visual impact.</td>
+                    <td><a href="https://www.miltonglaser.com/" target="_blank">Milton Glaser Official Site</a></td>
+                </tr>
+                <tr>
+                    <td>Jessica Walsh</td>
+                    <td>A contemporary designer and art director known for her bold, playful, and experimental style. She co-founded &Walsh, a creative agency, and is known for pushing boundaries in branding and design.</td>
+                    <td><a href="https://andwalsh.com/" target="_blank">&Walsh: Jessica Walsh</a></td>
+                </tr>
+                <tr>
+                    <td>Neville Brody</td>
+                    <td>A British graphic designer and typographer famed for his innovative magazine designs, especially for <i>The Face and Arena</i>. His work is often associated with the punk and postmodern aesthetic.</td>
+                    <td><a href="https://brody-associates.com/" target="_blank">The Brody Associates</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="color: #95c9e1;">Interactive Design Resources</h2>
+        <p>
+           I explore these helpful platforms and creative communities to improve my design skills and feel more connected to other artists and designers around the world.
+        </p>
+        <div class="interactive-resources">
+            <a href="https://www.adobe.com/creativecloud.html" target="_blank" class="resource-card">
+                <div class="text-content">
+                    <h3>Adobe Creative Cloud</h3>
+                    <p>Access industry-standard design software like Photoshop, Illustrator, and InDesign.</p>
+                </div>
+                <div class="image-container">
+                    <img src="Adobe Creative Cloud Logo.png" alt="Adobe Creative Cloud Logo">
+                </div>
+            </a>
+            <a href="https://www.behance.net/" target="_blank" class="resource-card">
+                <div class="text-content">
+                    <h3>Behance</h3>
+                    <p>Showcase your creative work and explore portfolios from top designers worldwide.</p>
+                </div>
+                <div class="image-container">
+                    <img src="Behance Logo.png" alt="Behance Logo">
+                </div>
+            </a>
+            <a href="https://dribbble.com/" target="_blank" class="resource-card">
+                <div class="text-content">
+                    <h3>Dribbble</h3>
+                    <p>A leading community for designers to share, grow, and get hired.</p>
+                </div>
+                <div class="image-container">
+                    <img src="Dribbble Logo.png" alt="Dribbble Logo">
+                </div>
+            </a>
+            <a href="https://www.canva.com/" target="_blank" class="resource-card">
+                <div class="text-content">
+                    <h3>Canva</h3>
+                    <p>An intuitive online design tool for creating stunning graphics easily.</p>
+                </div>
+                <div class="image-container">
+                    <img src="Canva Logo.png" alt="Canva Logo">
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p class="footer-contact-info">
+                 ©2025 <a href="https://wa.me/60102572094">Chea Han Qian</a>| Email: <a href="s231420029@studentmail.unimap.edu.my">s231420029@studentmail.unimap.edu.my</a> | Phone: <a href="tel:010-2572094">010-2572094</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
